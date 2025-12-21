@@ -1,0 +1,23 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/alondralezfra/Portfolio#readme",
+  "bugs": {
+    "url": "https://github.com/alondralezfra/Portfolio/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alondralezfra/Portfolio.git"
+  },
+  "license": "ISC",
+  "author": "Alondra Franco",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "devDependencies": {
+    "cypress": "^15.8.1"
+  }
+}
