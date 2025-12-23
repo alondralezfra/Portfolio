@@ -12,12 +12,16 @@
   },
   "license": "ISC",
   "author": "Alondra Franco",
-  "type": "commonjs",
-  "main": "index.js",
   "scripts": {
-    "test": "test"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "test": "cypress run"
   },
   "devDependencies": {
-    "cypress": "^15.8.1"
+    "cypress": "^15.8.1",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.0"
   }
 }
