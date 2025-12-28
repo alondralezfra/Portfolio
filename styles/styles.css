@@ -1,0 +1,110 @@
+/*
+  CSS file imports
+*/
+@import url("./experiences.css");
+@import url("./projects.css");
+
+/*
+   Font Imports
+*/
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;700&family=Nunito:wght@300;400;600;700&display=swap');
+
+/*
+   Theme Variables
+*/
+:root {
+  --color-bg: #f5ead6;
+  --color-panel: #fff7ec;
+  --color-text: #2b1d13;
+  --color-accent: #7a4b27;
+  --color-muted: #6b5546;
+
+  --radius-lg: 16px;
+  --radius-md: 12px;
+
+  --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.06);
+
+  --font-title: "Chakra Petch", sans-serif;
+  --font-body: "Nunito", system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+}
+
+/* Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  min-height: 100%;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  line-height: 1.65;
+}
+
+/*
+   Layout
+*/
+main {
+  width: min(1100px, 92%);
+  margin: 3rem auto 5rem auto;
+  text-align: center;
+}
+
+/*
+   Title + Bio FLOAT on background
+*/
+.hero-title {
+  font-family: var(--font-title);
+  font-size: clamp(2.5rem, 6vw, 4.25rem);
+  margin-bottom: 1rem;
+}
+
+.hero-bio {
+  font-size: clamp(1.2rem, 2.2vw, 1.5rem);
+  max-width: 75ch;
+  margin: 0 auto 3rem auto;
+  color: var(--color-muted);
+}
+
+/*
+   Shared Section Container Box
+*/
+.panel-section {
+  background: var(--color-panel);
+  padding: 2rem 2.5rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  margin: 2.5rem auto;
+  text-align: left; /* content inside stays aligned */
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1.25rem;
+}
+
+/*
+    Tech stack for experiences and projects
+*/
+.tech-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+}
+
+.tech-list li {
+  background: #f0e3cf;
+  color: var(--color-text);
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  border: 1px solid rgba(0,0,0,0.05);
+}

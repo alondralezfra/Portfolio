@@ -1,0 +1,68 @@
+[
+  {
+    "title": "Minimalist React Portfolio",
+    "description": "Designed portfolio website using a minimalist design.",
+    "duration": "Dec 2025",
+    "tech": ["React", "TypeScript", "JavaScript/JSX", "Cypress"]
+  },
+  {
+    "title": "M3ssag1n8 - Real-Time Messaging App with Custom MVC Architecture",
+    "description": "Architected a modular MVC frontend with Web-Component based views, enabling isolated Cypress testing and low coupling. Designed and implemented a message-editing extension using PUT overwrite, ensuring consistent UI state and data integrity. Managed complex client-side concurrency by coordinating SSE lifecycle cleanup, AbortController timeouts, race-free collection creation, and rapid user interactions, preventing stale subscriptions and inconsistent state. Built validation layers at all API edges with JSON Schema type guards, preventing malformed data from crashing the application",
+    "duration": "Oct 2025 - Dec 2025",
+    "tech": ["TypeScript","HTML/CSS", "Cypress"]
+  },
+  {
+    "title": "OwlDB - A Custom NoSQL Document Database Implementing a RESTful Web Service",
+    "description": "Designed a concurrent NoSQL database emphasizing reliability, fault tolerance, and maintainable architecture. Built a high-throughput internal storage system handling 1000+ ops/sec with O(log n) access time via concurrent skip lists. Implemented authentication with tokenized sessions and middleware architecture to ensure security and data integrity. Designed an atomic JSON patching engine for reliable, all-or-nothing doc updates in a NoSQL environment with visitor pattern",
+    "duration": "Aug 2025 - Nov 2025",
+    "tech": ["Go"]
+  },
+  {
+    "title": "ILOC Compiler",
+    "description": "Developed a 4-stage compiler (scanner, parser, renamer, allocator) achieving O(n) performance across 10+ instruction types. Optimized scanning performance by 3 through O(1) token classification and lightweight data structures. Designed single-pass renaming algorithm that assigns registers and computes next-use distances in one IR traversal. Implemented cost-aware register allocation using spill categorization and farthest-next-use heuristic for optimal register reuse",
+    "duration": "Aug 2025 - Dec 2025",
+    "tech": ["Java"]
+  },
+  {
+    "title": "Powerpuff: A women's website by women for women",
+    "description": "Designed a detailed “Recommendations” form for users to populate the database through app, product, and other recommendations. Led the deployment of the website using Mongo Atlas and render.com and configured environment variables and files. Configured Google Fonts and Tailwind by editing tailwind-config.yml and set primary branding through styling rules in index.css. Sped up article loading by 40% by optimizing the use of React render rather than an API fetch when user adds new articles",
+    "duration": "Jul 2025 - Aug 2025",
+    "tech": ["React", "MongoDB", "Node.js", "Express.js", "JavaScript"]
+  },
+  {
+    "title": "AIML Depression Analysis",
+    "description": "Applied Random Forest, Logistic Regression, and XGBoost models to predict whether patient has depression. Encoded categorical features, scaled the numerical data, used SMOTE to oversample, and applied feature selection methods. Found that using feature selection on Random Forest Classifier improved accuracy by 20% as compared to other models. Discovered the most influential features to be Alcohol Consumption, Income, and Substance Abuse",
+    "duration": "Dec 2024 - Mar 2025",
+    "tech": ["Python", "Numpy", "Matplotlib", "Scikitlearn"]
+  },
+  {
+    "title": "FEAT (Feedback and Evaluation via Automated Tests for Python Programs)",
+    "description": "Engineered an automated black-box test generation system achieving 95% coverage using only 12% of training data. Built comprehensive JUnit tests for all components with custom Python files to validate integration between Java and Python. Optimized execution speed by 40% by condensing test sets via a minimal hitting set algorithm. Integrated Python and Java pipelines using process I/O for real-time test execution and reporting",
+    "duration": "Sep 2024 - Nov 2024",
+    "tech": ["Java", "Python"]
+  },
+  {
+    "title": "VCT Hackathon: Esports Manager Challenge",
+    "description": "Developed an LLM-powered digital assistant with 4 esports datasets by using Amazon Bedrock knowledge bases and agents. Linked game data with 3 datasets in an S3 bucket, resulting in a 20% increase in knowledge base configuring efficiency. Increased model performance by 30% by integrating AWS Lambda functions to build an automated ETL workflow",
+    "duration": "Sep 2024 - Oct 2024",
+    "tech": ["Python", "boto3", "AWS", "S3", "AWS CLI"]
+  },
+  {
+    "title": "Data Analysis and Visualization of Rotten Tomatoes Movie Reviews",
+    "description": "Cleaned datasets from Rotten Tomatoes, resolving 3,000+ duplicate entries and standardizing critic scores for 2,000+ reviews. Optimized model to 87% accuracy by applying K-Means clustering on over 15,000 entries of data and evaluating metrics. Discovered a 20% variance in the identification of the top 10 critics when comparing mean imputation to KNN imputation",
+    "duration": "Sep 2024",
+    "tech": ["Python", "Scikitlearn", "Numpy", "Matplotlib"]
+  },
+    {
+    "title": "Active: Social Fitness App",
+    "description": "Designed modular UI components in Typescript, improving app load speed by 10% through optimized navigation design. Built an intuitive bottom tab navigation system by integrating Expo Router, ensuring seamless transitions between screens. Led the design of the “Goals” screen using Flexbox for consistent UI across devices and StyleSheet for reusable styles",
+    "duration": "July 2024 - Aug 2024",
+    "tech": ["React Native", "Expo Go", "JavaScript", "TypeScript"]
+  },
+  {
+    "title": "Elucidating the Transmission of a Bacterial Infection Through a Rooted Directed MST",
+    "description": "Recursively computed the Rooted Directed MST of a weighted digraph by modifying edge weights and contracting cycles. Analyzed transmission of Klebsiella pneumoniae among 18 patients by constructing a graph with pairwise genetic distances",
+    "duration": "Mar 2024",
+    "tech": ["Python"]
+  }
+]

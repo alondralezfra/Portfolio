@@ -1,0 +1,16 @@
+[
+  {
+    "title": "Cloud Operations Intern",
+    "company": "Somos Inc.",
+    "description": "Migrated 180+ CI/CD pipelines from Codefresh to GitHub Actions across 200+ repositories, improving maintainability, security, and cost efficiency",
+    "duration": "June 2025 - Aug 2025",
+    "tech": ["Github Actions", "Docker", "Kubernetes", "Backstage"]
+  },
+  {
+    "title": "Software Engineer Apprentice",
+    "company": "Techwise, Part of TalentSprint, Sponsored by Google",
+    "description": "Selected for an 18-month intensive engineering program combining coursework in data structures & algorithms, machine learning, and web development with hands-on team projects",
+    "duration": "Mar 2024 - Sep 2025",
+    "tech": ["React", "Python", "TypeScript", "JavaScript"]
+  }
+]

@@ -1,5 +1,8 @@
 {
   "compilerOptions": {
+    // Enable JSX
+    "jsx": "react-jsx",
+
     // Type Checking
     "strict": true,
     "exactOptionalPropertyTypes": true,
@@ -24,5 +27,5 @@
     "forceConsistentCasingInFileNames": true,
     "erasableSyntaxOnly": true
   },
-  "include": ["src/**/*.ts", "cypress.config.ts"]
+  "include": ["src/**/*.ts", "cypress.config.ts", "src/main.tsx", "src/view.tsx", "src/components/Projects.tsx"]
 }
