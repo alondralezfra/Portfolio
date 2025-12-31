@@ -2,15 +2,15 @@
   {
     "title": "Cloud Operations Intern",
     "company": "Somos Inc.",
-    "description": "Migrated 180+ CI/CD pipelines from Codefresh to GitHub Actions across 200+ repositories, improving maintainability, security, and cost efficiency",
+    "description": "Led the modernization of CI/CD by migrating 180+ pipelines from Codefresh to GitHub Actions across 200+ repositories. Built reusable workflow templates, automated image promotion and infrastructure provisioning, and improved release reliability through standardized builds, security scanning, and deployment automation. Contributed to Backstage onboarding by configuring service catalog metadata and collaborating with cross-functional teams to streamline DevOps practices.",
     "duration": "June 2025 - Aug 2025",
-    "tech": ["Github Actions", "Docker", "Kubernetes", "Backstage"]
+    "tech": ["GitHub Actions", "Docker", "Kubernetes", "Terraform", "Backstage", "JFrog", "AWS ECR"]
   },
   {
     "title": "Software Engineer Apprentice",
-    "company": "Techwise, Part of TalentSprint, Sponsored by Google",
-    "description": "Selected for an 18-month intensive engineering program combining coursework in data structures & algorithms, machine learning, and web development with hands-on team projects",
+    "company": "TechWise (Sponsored by Google)",
+    "description": "Selected for a competitive 18-month apprenticeship blending advanced coursework with hands-on software engineering projects. Built full-stack applications, practiced Agile development, conducted code reviews, and wrote unit tests to ensure production-quality code. Delivered technical presentations, collaborated on system design decisions, and implemented projects in AI/ML, web development, and mobile app development.",
     "duration": "Mar 2024 - Sep 2025",
-    "tech": ["React", "Python", "TypeScript", "JavaScript"]
+    "tech": ["React", "Node.js", "Python", "TypeScript", "MongoDB", "Express.js"]
   }
 ]

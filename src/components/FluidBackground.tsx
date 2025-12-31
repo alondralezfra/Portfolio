@@ -2,6 +2,9 @@ import { useEffect, useRef } from "react";
 
 const NUM_CREATURES = 120;
 
+/**
+ * Interface for tiny swimming creatures.
+ */
 interface Creature {
   x: number;
   y: number;
@@ -11,6 +14,10 @@ interface Creature {
   wobble: number;
 }
 
+/**
+ * React component for fluid background.
+ * @returns 
+ */
 export function FluidBackground() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const creatures = useRef<Creature[]>([]);
