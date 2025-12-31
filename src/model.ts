@@ -41,7 +41,7 @@ export interface AppState {
 export class Model {
   private state: AppState = {
     title: "Alondra Franco",
-    bio: "Houston-based software engineer. Most recently a cloud operations intern at Somos Inc.",
+    bio: "I’m a senior at Rice University studying computer science, with a strong interest in backend systems and software architecture. I communicate clearly, motivate teams with energy and optimism, and naturally take initiative in group projects—either as a leader or as a facilitator who keeps collaboration flowing smoothly. What drives me most is the opportunity to help others and to keep learning every day. I value openness, mentorship, diversity, and impact, and I believe great work happens when people feel happy and supported throughout the process.",
     experiences,
     projects,
   };
