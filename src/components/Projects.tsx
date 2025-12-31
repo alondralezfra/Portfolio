@@ -1,4 +1,14 @@
-import type { Project } from "../model";
+/**
+ * Interface for project
+ */
+interface Project {
+  title: string;
+  description: string;
+  duration: string;
+  tech: string[];
+  website?: string;
+  code?: string;
+}
 
 /**
  * Props interface to pass in projects as a single object destructured.
@@ -14,7 +24,7 @@ interface Props {
  */
 export function Projects({ projects }: Props) {
   return (
-    <section className="panel-section projects-panel">
+    <section className="projects-panel">
         <h2 className="section-title">Projects</h2>
         <ul className="projects-grid">
             {projects.map((p) => (

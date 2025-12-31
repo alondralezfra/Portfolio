@@ -56,7 +56,7 @@ main {
 }
 
 /*
-   Title + Bio FLOAT on background
+   Title and Bio float on background
 */
 .hero-title {
   font-family: var(--font-title);
@@ -72,6 +72,18 @@ main {
 }
 
 /*
+    Fluid Background
+*/
+.fluid-bg-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/*
    Shared Section Container Box
 */
 .panel-section {
@@ -80,10 +92,11 @@ main {
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-soft);
   margin: 2.5rem auto;
-  text-align: left; /* content inside stays aligned */
+  text-align: left;
 }
 
 .section-title {
+  font-family: var(--font-title);
   text-align: center;
   font-size: 2rem;
   margin-bottom: 1.25rem;

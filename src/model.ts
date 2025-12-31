@@ -1,10 +1,11 @@
+// Import experiences and projects data
 import experiences from "./data/experiences.json";
 import projects from "./data/projects.json";
 
 /**
  * Interface for experience
  */
-export interface Experience {
+interface Experience {
   title: string;
   company: string;
   description: string;
@@ -15,7 +16,7 @@ export interface Experience {
 /**
  * Interface for project
  */
-export interface Project {
+interface Project {
   title: string;
   description: string;
   duration: string;

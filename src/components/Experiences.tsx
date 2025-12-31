@@ -1,4 +1,13 @@
-import type { Experience } from "../model";
+/**
+ * Interface for experience
+ */
+interface Experience {
+  title: string;
+  company: string;
+  description: string;
+  duration: string;
+  tech: string[];
+}
 
 /**
  * Props interface to pass in experiences as a single object destructured.
@@ -14,7 +23,7 @@ interface Props {
  */
 export function Experiences({ experiences }: Props) {
   return (
-    <section className="panel-section experiences-panel">
+    <section className="experiences-panel">
       <h2 className="section-title">Experience</h2>
       <ul className="experiences">
         {experiences.map((exp) => (
