@@ -28,13 +28,15 @@
     "title": "Powerpuff – Women’s Community Platform",
     "description": "Developed a full-stack platform for women to share app, product, and travel recommendations. Built recommendation submission workflows and admin approval features. Deployed using MongoDB Atlas and Render with secure environment configuration. Optimized article rendering by caching React state updates, improving load speed by ~40%.",
     "duration": "Jul 2025 - Aug 2025",
-    "tech": ["React", "MongoDB", "Node.js", "Express.js", "JavaScript"]
+    "tech": ["React", "MongoDB", "Node.js", "Express.js", "JavaScript"],
+    "code": "https://github.com/haianhng31/Powerpuff-girls"
   },
   {
     "title": "AIML Depression Analysis",
     "description": "Built predictive models for depression risk using Random Forest, Logistic Regression, and XGBoost. Performed data cleaning, encoding, SMOTE oversampling, and feature selection. Improved Random Forest accuracy by ~20% through targeted feature selection and identified key predictors including alcohol use, income, and substance abuse.",
     "duration": "Dec 2024 - Mar 2025",
-    "tech": ["Python", "NumPy", "Matplotlib", "Scikit-learn"]
+    "tech": ["Python", "NumPy", "Matplotlib", "Scikit-learn"],
+    "code": "https://github.com/alondralezfra/AIML-Depression-Analysis"
   },
   {
     "title": "FEAT – Feedback and Evaluation via Automated Tests",
@@ -58,7 +60,8 @@
     "title": "Active – Social Fitness App",
     "description": "Designed reusable TypeScript UI components and improved navigation efficiency by 10% using Expo Router. Built a bottom-tab navigation system and implemented responsive layouts with Flexbox. Led the design of the Goals screen ensuring consistency across device sizes.",
     "duration": "Jul 2024 - Aug 2024",
-    "tech": ["React Native", "Expo Go", "JavaScript", "TypeScript"]
+    "tech": ["React Native", "Expo Go", "JavaScript", "TypeScript"],
+    "code": "https://github.com/alondralezfra/Active"
   },
   {
     "title": "Transmission of Bacterial Infection via Directed MST",
