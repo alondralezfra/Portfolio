@@ -30,8 +30,8 @@ export function Projects({ projects }: Props) {
             {projects.map((p) => (
             <li key={p.title} className="project-card">
                 <h3>{p.title}</h3>
-                <p>{p.description}</p>
                 <em>{p.duration}</em>
+                <p>{p.description}</p>
                 <ul className="tech-list">
                     {p.tech.map(t => (
                         <li key={t}>{t}</li>
