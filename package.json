@@ -2,7 +2,7 @@
   "name": "portfolio",
   "version": "1.0.0",
   "description": "",
-  "homepage": "https://github.com/alondralezfra/Portfolio#readme",
+  "homepage": "https://alondralezfra.github.io/Portfolio/",
   "bugs": {
     "url": "https://github.com/alondralezfra/Portfolio/issues"
   },
@@ -22,6 +22,7 @@
   "devDependencies": {
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.2",
     "cypress": "^15.8.1",
     "typescript": "^5.9.3",
     "vite": "^7.3.0"
