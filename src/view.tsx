@@ -3,7 +3,7 @@ import { Model } from "./model";
 import { Bio } from "./components/Bio";
 import { Experiences } from "./components/Experiences";
 import { Projects } from "./components/Projects";
-import { FluidBackground } from "./components/FluidBackground";
+import FluidBackground from "./components/FluidBackground";
 
 // Initialize model
 const model = new Model();

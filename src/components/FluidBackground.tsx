@@ -1,154 +1,118 @@
-import { useEffect, useRef } from "react";
+import React, { useRef, useEffect } from 'react';
+import FluidDynamicsSolver from '../fluidSimulation/FluidDynamicsSolver'; // Adjust the import path according to your project structure
 
-const NUM_CREATURES = 120;
+// Canvas spans full window
+const canvasWidth = window.innerWidth
+const canvasHeight = window.innerHeight
 
-/**
- * Interface for tiny swimming creatures.
- */
-interface Creature {
-  x: number;
-  y: number;
-  vx: number;
-  vy: number;
-  size: number;
-  wobble: number;
-}
+// Simulation grid uses whichever side is larger to stay square
+const size = (canvasWidth > canvasHeight) ? canvasWidth : canvasHeight
 
 /**
- * React component for fluid background.
- * @returns 
+ * React component for fluid background which uses the FluidDynamicSolver class
+ * @returns React component as function
  */
-export function FluidBackground() {
-  const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  const creatures = useRef<Creature[]>([]);
-  const mouse = useRef({ x: 0, y: 0, active: false });
+const FluidBackground: React.FC = () => {
+  const canvasRef = useRef< HTMLCanvasElement | null >(null);
+  const scale = (canvasWidth > 600) ? 10 : 6; // higher scale = faster simulation
 
-  // simple smooth flow field (not full Navier–Stokes → fast & pretty)
-  const flow = (x: number, y: number, t: number) => {
-    const nx = x * 0.0015 + t * 0.0003;
-    const ny = y * 0.0015 - t * 0.00025;
-    const angle = Math.sin(nx) + Math.cos(ny);
-    return {
-      vx: Math.cos(angle),
-      vy: Math.sin(angle),
-    };
-  };
+  // Initialize the solver for fluid background with no diffusion or viscosity
+  const solver = new FluidDynamicsSolver(Math.floor(size / scale), 0.006, 0.0, 0.0);
+  
+  // Kick the fluid (pre-seeded motion)
+  solver.addVelocity(Math.floor(canvasWidth * 3 / 5 / scale), Math.floor(canvasHeight / 2 / scale), 5000, 0)
+  solver.addVelocity(Math.floor(canvasWidth * 2 / 5 / scale), Math.floor(canvasHeight / 2 / scale), -5000, 0)
+  solver.addVelocity(Math.floor(canvasWidth * 2.5 / 5 / scale), Math.floor(canvasHeight * 2.3 / 5 / scale), 0, -7000)
+  solver.addVelocity(Math.floor(canvasWidth * 2.5 / 5 / scale), Math.floor(canvasHeight * 2.7 / 5 / scale), 0, 7000)
+  
+  const amount = 60; // density added by mouse
+  const velocityAmount = 40; // strength of mouse pushing fluid
 
   useEffect(() => {
+    // canvas set up
     const canvas = canvasRef.current;
     if (!canvas) return;
+    const ctx = canvasRef.current.getContext('2d');
+    if (!ctx) return;
 
-    const ctx = canvas.getContext("2d")!;
-    const resize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+    let animationFrameId: number;
+    let lastX = 0;
+    let lastY = 0;
+
+    // Mouse interaction handler
+    const onMouseMove = (event: MouseEvent) => {
+      // Converts from pixel coordinates to solver grid
+      const x = event.clientX;
+      const y = event.clientY;
+      if (x <= 10 || y <= 10) return;
+
+      const gridX = Math.floor(x / scale);
+      const gridY = Math.floor(y / scale);
+
+      // Adds density and velocity based on mouse direction and speed
+      solver.addDensity(gridX, gridY, amount);
+      solver.addVelocity(gridX, gridY, (x - lastX) / scale * velocityAmount, (y - lastY) / scale * velocityAmount);
+
+      lastX = x;
+      lastY = y;
     };
-    resize();
-    window.addEventListener("resize", resize);
 
-    // create creatures
-    creatures.current = Array.from({ length: NUM_CREATURES }).map(() => ({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      vx: 0,
-      vy: 0,
-      size: 1.2 + Math.random() * 2.2,
-      wobble: Math.random() * Math.PI * 2,
-    }));
+    // Render loop updates fluid physics, wipes canvas, and draws a new frame
+    const render = () => {
+      solver.simulate(); // Simulate one step
 
-    const handleMove = (e: MouseEvent) => {
-      mouse.current = { x: e.clientX, y: e.clientY, active: true };
-    };
-    const handleLeave = () => (mouse.current.active = false);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    window.addEventListener("mousemove", handleMove);
-    window.addEventListener("mouseleave", handleLeave);
+      for (let j = 0; j < solver.N; j++) {
+        for (let i = 0; i < solver.N; i++) {
 
-    let last = performance.now();
+          // Read velocity from solver
+          const u = solver.u[solver.IX(i, j)];
+          const v = solver.v[solver.IX(i, j)];
 
-    const loop = (time: number) => {
-      const dt = time - last;
-      last = time;
+          // Calculate the vector's magnitude and use it to scale the length
+          const magnitude = Math.sqrt(u * u + v * v);
+          let vectorLength = Math.max(1, magnitude * 20) - 1;
+          vectorLength = Math.min(vectorLength, scale * 7); // Cap the length to half the cell size
 
-      ctx.fillStyle = "rgba(245, 234, 214, 0.25)";
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+          // Calculate angle for the direction
+          const angle = Math.atan2(v, u);
 
-      creatures.current.forEach((c) => {
-        // flow influence
-        const f = flow(c.x, c.y, time);
+          // Set up for drawing
+          ctx.save();
+          ctx.translate(i * scale + scale / 2, j * scale + scale / 2); // Center of cell
+          ctx.rotate(angle);
+          ctx.fillStyle = `rgba(160, 115, 90, ${Math.min(0.22, Math.abs(magnitude / 6))})`; // warm brown
 
-        c.vx += f.vx * 0.3;
-        c.vy += f.vy * 0.3;
+          // Draw the vector as a rounded rectangle
+          ctx.fillRect(-scale, -scale, scale, scale);
 
-        // wobble
-        c.wobble += 0.05;
-        c.vx += Math.cos(c.wobble) * 0.05;
-        c.vy += Math.sin(c.wobble) * 0.05;
-
-        // mild avoidance of mouse
-        if (mouse.current.active) {
-          const dx = c.x - mouse.current.x;
-          const dy = c.y - mouse.current.y;
-          const dist = Math.hypot(dx, dy);
-          if (dist < 120) {
-            c.vx += (dx / dist) * 0.8;
-            c.vy += (dy / dist) * 0.8;
-          }
+          ctx.restore();
         }
+      }
 
-        // damping
-        c.vx *= 0.96;
-        c.vy *= 0.96;
-
-        c.x += c.vx;
-        c.y += c.vy;
-
-        // wrap edges
-        if (c.x < 0) c.x = canvas.width;
-        if (c.x > canvas.width) c.x = 0;
-        if (c.y < 0) c.y = canvas.height;
-        if (c.y > canvas.height) c.y = 0;
-
-        // draw creature (tadpole / comet shape)
-        const angle = Math.atan2(c.vy, c.vx);
-
-        ctx.save();
-        ctx.translate(c.x, c.y);
-        ctx.rotate(angle);
-
-        // body
-        ctx.beginPath();
-        ctx.ellipse(0, 0, c.size * 2.2, c.size, 0, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(90, 65, 45, 0.7)";
-        ctx.fill();
-
-        // tail
-        ctx.beginPath();
-        ctx.moveTo(-c.size * 2.3, 0);
-        ctx.quadraticCurveTo(
-          -c.size * 3.4,
-          Math.sin(time * 0.01 + c.wobble) * 2,
-          -c.size * 4.2,
-          0
-        );
-        ctx.strokeStyle = "rgba(90, 65, 45, 0.55)";
-        ctx.lineWidth = 1;
-        ctx.stroke();
-
-        ctx.restore();
-      });
-
-      requestAnimationFrame(loop);
+      animationFrameId = window.requestAnimationFrame(render);
     };
 
-    requestAnimationFrame(loop);
+    // Attach mouse listener and run animation
+    window.addEventListener('mousemove', onMouseMove);
+    render();
 
     return () => {
-      window.removeEventListener("resize", resize);
-      window.removeEventListener("mousemove", handleMove);
-      window.removeEventListener("mouseleave", handleLeave);
+      // Clean up on unmount
+      window.cancelAnimationFrame(animationFrameId);
     };
   }, []);
+  return (
+    <>
+      <canvas
+        ref={canvasRef}
+        width={canvasWidth}
+        height={canvasHeight}
+        className="fluid-bg-canvas"
+      />
+    </>
+  )
+};
 
-  return <canvas ref={canvasRef} className="fluid-bg-canvas" />;
-}
+export default FluidBackground;

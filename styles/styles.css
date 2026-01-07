@@ -17,7 +17,7 @@
   --color-panel: #fff7ec;
   --color-text: #2b1d13;
   --color-accent: #7a4b27;
-  --color-muted: #6b5546;
+  --color-muted: #3a2a1d;
 
   --radius-lg: 16px;
   --radius-md: 12px;
@@ -93,6 +93,9 @@ main {
   box-shadow: var(--shadow-soft);
   margin: 2.5rem auto;
   text-align: left;
+  position: relative;
+  z-index: 1;
+  backdrop-filter: none;
 }
 
 .section-title {

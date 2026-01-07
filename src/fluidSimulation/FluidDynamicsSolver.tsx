@@ -1,22 +1,52 @@
+/**
+ * Class simulates velocity, density, how velocity moves itself and density,
+ * simple diffusion, viscosity, and projection to keep fluid incompressible.
+ * It divides the screen into a grid, tracks velocity and dye at each cell,
+ * allows user to inject both, and applies Navier-Stokes physics, resulting in
+ * smooth swirling motion.
+ * 
+ * Each frame the simulation does the following steps:
+ * - update velocity
+ * - update density
+ * - decay density over time
+ * - repeat every animation frame
+ */
 class FluidDynamicsSolver {
-  public N: number;
+  /**
+   * Class properties
+   */
+  public N: number; // grid resolution
   private size: number;
-  private dt: number;
-  private diff: number;
-  private visc: number;
-  public u: Float32Array;
-  public v: Float32Array;
-  private uPrev: Float32Array;
-  private vPrev: Float32Array;
-  public dens: Float32Array;
-  private densPrev: Float32Array;
+  private dt: number; // timestep length - how fast simulation moves per frame
+  private diff: number; // diffusion rate - how fast density spreads
+  private visc: number; // viscosity - thickness of fluid
 
+  /**
+   * Fields stored on grid
+   */
+  public u: Float32Array; // x component of velocity
+  public v: Float32Array; // y component of velocity
+  private uPrev: Float32Array; // previous step of u
+  private vPrev: Float32Array; // previous step of v
+  public dens: Float32Array; // fluid density
+  private densPrev: Float32Array; // previous fluid density
+
+  /**
+   * Sets class properties and initializes (N+2)^2 arrays to 0 for grid fields
+   * @param N grid resolution
+   * @param dt timestep length
+   * @param diff diffusion rate
+   * @param visc viscosity
+   */
   constructor(N: number, dt: number, diff: number, visc: number) {
+    // Set class properties
     this.N = N;
     this.dt = dt;
     this.diff = diff;
     this.visc = visc;
     this.size = (N + 2) * (N + 2);
+
+    // Create arrays length (N+2)^2 and initialize to 0
     this.u = new Float32Array(this.size);
     this.v = new Float32Array(this.size);
     this.uPrev = new Float32Array(this.size);
@@ -25,41 +55,68 @@ class FluidDynamicsSolver {
     this.densPrev = new Float32Array(this.size);
   }
 
+  /**
+   * Converts 2D coordinates to 1D index for sequential memory storage
+   * @param i x-coordinate
+   * @param j y-coordinate
+   * @returns equivalent 1D index
+   */
   public IX(i: number, j: number): number {
     return i + (this.N + 2) * j;
   }
 
+  /**
+   * Adds a full-field source array scaled by dt
+   * @param x 
+   * @param s 
+   */
   public addSource(x: Float32Array, s: Float32Array): void {
     for (let i = 0; i < this.size; i++) {
       x[i] += this.dt * s[i];
     }
   }
+
+  /**
+   * Add density at a single cell
+   * @param x 
+   * @param y 
+   * @param amount 
+   */
   public addDensity(x: number, y: number, amount: number): void {
     const index = this.IX(x, y);
     this.dens[index] += amount;
   }
 
+  /**
+   * Add velocity at one cell
+   * @param x 
+   * @param y 
+   * @param amountX 
+   * @param amountY 
+   */
   public addVelocity(x: number, y: number, amountX: number, amountY: number): void {
     const index = this.IX(x, y);
     this.u[index] += amountX;
     this.v[index] += amountY;
   }
 
+  /**
+   * Multiplicative fade to produce smooth fading trails
+   * @param decayFactor 
+   */
   decayDensity(decayFactor: number): void {
     for (let i = 0; i < this.dens.length; i++) {
       this.dens[i] *= decayFactor;
     }
   }
 
-  decayDensityNumber(decayFactor: number): void {
-    for (let i = 0; i < this.dens.length; i++) {
-      this.dens[i] -= decayFactor;
-      if (this.dens[i] < 0) {
-        this.dens[i] = 0;
-      }
-    }
-  }
-
+  /**
+   * Models how fluid spreads out naturally
+   * @param b 
+   * @param x 
+   * @param x0 
+   * @param diff 
+   */
   public diffuse(b: number, x: Float32Array, x0: Float32Array, diff: number): void {
     let a = this.dt * diff * this.N * this.N;
     for (let k = 0; k < 20; k++) {
@@ -72,6 +129,14 @@ class FluidDynamicsSolver {
     }
   }
 
+  /**
+   * Answers where contents of fluid come from one timestep ago
+   * @param b 
+   * @param d 
+   * @param d0 
+   * @param u 
+   * @param v 
+   */
   public advect(b: number, d: Float32Array, d0: Float32Array, u: Float32Array, v: Float32Array): void {
     let i0, j0, i1, j1;
     let x, y, s0, t0, s1, t1, dt0;
@@ -102,6 +167,13 @@ class FluidDynamicsSolver {
     this.setBnd(b, d);
   }
 
+  /**
+   * Makes incompressible fluid and enforces divergence-free velocity field
+   * @param u 
+   * @param v 
+   * @param p 
+   * @param div 
+   */
   public project(u: Float32Array, v: Float32Array, p: Float32Array, div: Float32Array): void {
     let h = 1.0 / this.N;
     for (let i = 1; i <= this.N; i++) {
@@ -137,6 +209,11 @@ class FluidDynamicsSolver {
     this.setBnd(2, v);
   }
 
+  /**
+   * Mirrors velocity at walls to prevent fluid from leaving box
+   * @param b 
+   * @param x 
+   */
   private setBnd(b: number, x: Float32Array): void {
     for (let i = 1; i <= this.N; i++) {
       x[this.IX(0, i)] = b === 1 ? -x[this.IX(1, i)] : x[this.IX(1, i)];
@@ -150,6 +227,14 @@ class FluidDynamicsSolver {
     x[this.IX(this.N + 1, this.N + 1)] = 0.5 * (x[this.IX(this.N, this.N + 1)] + x[this.IX(this.N + 1, this.N)]);
   }
 
+  /**
+   * Diffuses density and advects density using current velocity
+   * @param x 
+   * @param x0 
+   * @param u 
+   * @param v 
+   * @param diff 
+   */
   public densStep(x: Float32Array, x0: Float32Array, u: Float32Array, v: Float32Array, diff: number): void {
     this.swap(x0, x);
     this.diffuse(0, x, x0, diff);
@@ -157,6 +242,14 @@ class FluidDynamicsSolver {
     this.advect(0, x, x0, u, v);
   }
 
+  /**
+   * Velocity updates itself
+   * @param u 
+   * @param v 
+   * @param u0 
+   * @param v0 
+   * @param visc 
+   */
   public velStep(u: Float32Array, v: Float32Array, u0: Float32Array, v0: Float32Array, visc: number): void {
     this.swap(u0, u);
     this.diffuse(1, u, u0, visc);
@@ -170,16 +263,25 @@ class FluidDynamicsSolver {
     this.project(u, v, u0, v0);
   }
 
+  /**
+   * Copies data between fields without allocating new arrays
+   * @param a 
+   * @param b 
+   */
   private swap(a: Float32Array, b: Float32Array): void {
     const temp = a.slice();
     a.set(b);
     b.set(temp);
   }
 
+  /**
+   * Main function which runs the velocity, density, and density fading
+   */
   public simulate(): void {
     this.velStep(this.u, this.v, this.uPrev, this.vPrev, this.visc);
     this.densStep(this.dens, this.densPrev, this.u, this.v, this.diff);
     this.decayDensity(0.999);
   }
 }
+
 export default FluidDynamicsSolver;
