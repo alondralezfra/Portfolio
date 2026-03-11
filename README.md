@@ -2,6 +2,8 @@
 
 This repository contains the source code for my personal portfolio website, built with **React + TypeScript** and structured using a lightweight **Model–View architecture**. The site showcases my background, experience, and projects, and features an interactive **real-time fluid dynamics simulation** rendered on an HTML canvas.
 
+Website located at: https://alondralezfra.github.io/Portfolio/
+
 ---
 
 ## Features
