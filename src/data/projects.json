@@ -2,7 +2,7 @@
   {
     "title": "OrionTrading.pro Stock Trading Platform",
     "description": "Collaborated on a 30-developer project to build a simulated stock trading platform. Implemented the ledger interface for account activity and financial summaries, created a mock backend to enable parallel frontend development, and worked with the infrastructure team to define REST API contracts and map transaction, order, and account schemas to a Bigtable-backed backend.",
-    "duration": "2026",
+    "duration": "Jan 2026 - May 2026",
     "tech": ["React", "TypeScript", "Python", "FastAPI", "Google Cloud Bigtable", "REST APIs"],
     "code": "https://github.com/COMP413-S26/comp413frontend"
   },
