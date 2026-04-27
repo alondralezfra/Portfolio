@@ -5,7 +5,7 @@
     "duration": "Jan 2026 - May 2026",
     "tech": ["React", "TypeScript", "Python", "FastAPI", "Google Cloud Bigtable", "REST APIs"],
     "code": "https://github.com/COMP413-S26/comp413frontend",
-    "url": "https://oriontrading.pro/#/login"
+    "website": "https://oriontrading.pro/#/login"
   },
   {
     "title": "Minimalist React Portfolio",
@@ -13,7 +13,7 @@
     "duration": "Dec 2025",
     "tech": ["React", "TypeScript", "JavaScript/JSX", "Cypress"],
     "code": "https://github.com/alondralezfra/Portfolio",
-    "url": "https://alondralezfra.github.io/Portfolio/"
+    "website": "https://alondralezfra.github.io/Portfolio/"
   },
   {
     "title": "M3ssag1n8 – Real-Time Messaging App with Custom MVC Architecture",
