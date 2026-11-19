@@ -1,55 +1,53 @@
-// Import experiences and projects data
 import experiences from "./data/experiences.json";
 import projects from "./data/projects.json";
+import story from "./data/story.json";
+import type { MenuItem } from "./menu";
 
-/**
- * Interface for experience
- */
-interface Experience {
-  title: string;
-  company: string;
-  description: string;
-  duration: string;
-  tech: string[];
-}
-
-/**
- * Interface for project
- */
-interface Project {
-  title: string;
-  description: string;
-  duration: string;
-  tech: string[];
+/** A project (a bread on the tray). */
+export interface Project extends MenuItem {
   website?: string;
   code?: string;
 }
 
-/**
- * Interface for app state.
- */
-export interface AppState {
-  title: string;
-  bio: string,
-  experiences: Experience[];
-  projects: Project[];
+/** A job (a drink on the menu). */
+export interface Experience extends MenuItem {
+  company: string;
 }
 
-/**
- * Model class to store and handle app state.
- */
+export interface Hobby {
+  id: string;
+  title: string;
+  description: string;
+  photo: string | null;
+  photoAlt: string;
+}
+
+export interface Story {
+  owner: { heading: string; paragraphs: string[]; photo: string | null; photoAlt: string };
+  origin: { heading: string; text: string };
+  hobbies: Hobby[];
+  culture: { heading: string; paragraphs: string[] };
+  photos: { id: string; src: string | null; alt: string; caption: string }[];
+}
+
+export interface AppState {
+  title: string;
+  tagline: string;
+  experiences: Experience[];
+  projects: Project[];
+  story: Story;
+}
+
+/** Holds the site's content. Components get a copy and never edit it. */
 export class Model {
   private state: AppState = {
     title: "Alondra Franco",
-    bio: "I'm a senior at Rice University studying computer science, with a strong interest in backend systems and cloud architecture. I communicate clearly, motivate teams with energy and optimism, and naturally take initiative in group projects, either as a leader or as a facilitator who keeps collaboration flowing smoothly. What drives me most is the opportunity to help others and to keep learning every day. I value openness, mentorship, diversity, and impact, and I believe great work happens when people feel happy and supported throughout the process.",
-    experiences,
-    projects,
+    tagline: "Software engineer, dancer and musician. Pull up a chair and order a project.",
+    experiences: experiences as Experience[],
+    projects: projects as Project[],
+    story: story as Story,
   };
 
-  /**
-   * Clones the current state to return.
-   * @returns current state
-   */
   getState(): AppState {
     return structuredClone(this.state);
   }

@@ -1,97 +1,32 @@
 # Portfolio Website
 
-This repository contains the source code for my personal portfolio website, built with **React + TypeScript** and structured using a lightweight **Model–View architecture**. The site showcases my background, experience, and projects, and features an interactive **real-time fluid dynamics simulation** rendered on an HTML canvas.
+My personal portfolio, themed as a panadería-café, built with **React + TypeScript** and Vite.
 
-Website located at: https://alondralezfra.github.io/Portfolio/
+Website: https://alondralezfra.github.io/Portfolio/
 
----
+## What it is
+- **Bread Tray** (projects), **Drinks** (job experience) and **Our Story** (about me), as an accessible tab bar.
+- **Brew your stack:** pick technologies to see the dishes made with all of them.
+- **Sweetness:** switch each dish between a light summary, a full description and a deep technical write-up.
+- Plain, readable menu lists with links to code and websites. An illustrated tray is planned on top of the same data.
 
-## Features
+Design and decisions: [docs/design-spec.md](docs/design-spec.md). How changes are made here: [CLAUDE.md](CLAUDE.md).
 
-### Clean Model–View Separation
-- Application state (bio, experiences, projects) is centralized in a model layer
-- View components remain stateless and declarative
-
-### Interactive Fluid Simulation Background
-- Real-time 2D fluid dynamics solver based on simplified Navier–Stokes equations
-- Mouse movement injects velocity and density into the simulation
-- Custom canvas renderer for smooth, organic motion
-
-### Fully Componentized UI
-- Modular React components for Bio, Experience, and Projects
-- Data-driven rendering from JSON files
-
-### Type-Safe Codebase
-- Written entirely in TypeScript
-- Explicit interfaces for application state, projects, and experiences
-
----
-
-## Architecture Overview
+## Structure
+```
 src/
+├── main.tsx          entry point
+├── view.tsx          page: tabs, controls, panels
+├── model.ts          typed content (state)
+├── menu.ts           pure logic: filtering, levels (unit tested)
+├── components/       Tabs, BrewFilter, SweetnessPicker, MenuList, OurStory
+└── data/             projects.json, experiences.json, story.json
+```
 
-├── main/ # Application entry point
-
-├── model/ # Centralized application state
-
-│ └── data/ # Experience and project JSON data
-
-├── view/ # Top-level React view
-
-├── components/ # Reusable UI components
-
-│ ├── Bio
-
-│ ├── Experiences
-
-│ ├── Projects
-
-│ └── FluidBackground
-
-└── fluidSimulation/ # Custom fluid dynamics engine
-
----
-
-## Model
-
-The `Model` class owns the full application state, including:
-- Portfolio title and bio
-- Experience and project data loaded from JSON
-
-State is cloned before being exposed to prevent mutation and keep rendering predictable.
-
----
-
-## View
-
-The view layer retrieves immutable state from the model and renders:
-- A hero bio section
-- Experience and project panels
-- A full-screen animated fluid background
-
----
-
-## Fluid Simulation
-
-The background animation is powered by a custom-built **grid-based fluid solver** that simulates:
-- Velocity advection
-- Density diffusion
-- Projection for incompressible flow
-- Boundary constraints
-
-Each animation frame:
-- Updates velocity fields
-- Updates and advects density
-- Applies decay for smooth fading
-- Renders velocity vectors directly to the canvas
-
-Mouse movement dynamically injects energy into the fluid, creating an interactive visual effect.
-
----
-
-## Technologies Used
-
-- React
-- TypeScript
-- HTML Canvas
-- CSS
+## Commands
+```sh
+npm install
+npm run dev            # http://localhost:5173/Portfolio/
+npm run verify:quick   # unit tests + type-check + build
+npm run verify         # full gate: also end-to-end + accessibility tests (CI runs this on pull requests)
+```
