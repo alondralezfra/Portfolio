@@ -1,0 +1,50 @@
+{
+  "owner": {
+    "heading": "Meet the owner",
+    "paragraphs": [
+      "I'm Alondra Franco, a senior at Rice University studying computer science, with a strong interest in backend systems and cloud architecture. I communicate clearly, motivate teams with energy and optimism, and naturally take initiative in group projects, either as a leader or as a facilitator who keeps collaboration flowing smoothly.",
+      "What drives me most is the opportunity to help others and to keep learning every day. I value openness, mentorship, diversity and impact, and I believe great work happens when people feel happy and supported throughout the process."
+    ],
+    "photo": null,
+    "photoAlt": "TODO: describe the photo of Alondra"
+  },
+  "origin": {
+    "heading": "Where I'm from",
+    "text": "I was born in Reynosa, Tamaulipas, and moved across the border to McAllen, Texas, where I lived most of my life."
+  },
+  "hobbies": [
+    {
+      "id": "dance",
+      "title": "Dancing",
+      "description": "I have danced since high school and have been on four different dance teams. I also directed dances, which is what inspired Dance 360.",
+      "photo": null,
+      "photoAlt": "TODO: describe the dance photo"
+    },
+    {
+      "id": "euphonium",
+      "title": "Euphonium",
+      "description": "I have played euphonium since elementary school and made the Texas All-State band my senior year of high school.",
+      "photo": null,
+      "photoAlt": "TODO: describe the euphonium photo"
+    },
+    {
+      "id": "guitar",
+      "title": "Guitar",
+      "description": "I have played guitar since elementary school too, and I love learning Disney songs on it for fun.",
+      "photo": null,
+      "photoAlt": "TODO: describe the guitar photo"
+    }
+  ],
+  "culture": {
+    "heading": "A note on the Valley",
+    "paragraphs": [
+      "TODO (draft for Alondra to edit): Northern Mexico has its own flavor: norteño and cumbia music, flour tortillas and cabrito, carne asada on weekends, and a culture built around family gatherings and long meals.",
+      "TODO (draft for Alondra to edit): The Rio Grande Valley, where I grew up, is unlike the rest of the US. It is primarily Mexican, so it feels like being in Mexico while living in the United States. Spanish and English mix in the same sentence, the food and music of both sides of the border are everyday, and the border is part of daily life rather than a line on a map."
+    ]
+  },
+  "photos": [
+    { "id": "photo-1", "src": null, "alt": "TODO: describe photo 1", "caption": "TODO" },
+    { "id": "photo-2", "src": null, "alt": "TODO: describe photo 2", "caption": "TODO" },
+    { "id": "photo-3", "src": null, "alt": "TODO: describe photo 3", "caption": "TODO" }
+  ]
+}

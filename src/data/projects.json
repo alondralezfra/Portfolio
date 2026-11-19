@@ -1,87 +1,183 @@
 [
   {
+    "id": "dance-360",
     "title": "Dance 360 – Workspace for Dance Directors",
+    "summary": "A web workspace that links a dance's formations, cast, parts, music and resources in one place.",
     "description": "Built a web workspace for dance directors that links formations, cast, parts, music, and resources in one place. Implemented a canvas-based formation editor with timing in counts, a roster and part-assignment grid linked to dot colors, and an audio Song tab with waveform, tempo-map estimation, metronome playback, and tap-to-snap. Backed by versioned local persistence, a playback engine, and a full verification gate of unit, coverage, accessibility, and browser tests.",
+    "details": [
+      "Why: I directed dances on a college dance team, and formations lived in one app while part assignments, tutorial videos and schedules were scattered across spreadsheets, group chats and Drive folders. Dance 360 connects them, so clicking a dancer shows their parts, formations and videos together.",
+      "Design decision: counts, not seconds, are the source of truth. Formations are stored as a set and a count (for example Set 3, Count 5), and a tempo map (BPM plus where Set 1 Count 1 lands) converts counts to audio time only at playback. Positions over time come from a single playback function rather than being animated inside components.",
+      "Engineering: formations are drawn on a canvas, the song tab estimates tempo and first beat and supports a metronome, tap-to-snap, draggable markers and speaker-delay calibration. Saved data is versioned with migrations, and every change goes through a gate of lint, unit tests with coverage, a production build, accessibility checks and browser tests.",
+      "Status: the formation editor, roster and parts grid, song and timeline, resources and notes, and overview problem checks are done. Responsive and mobile refinements are still in progress."
+    ],
     "duration": "Nov 2026 - Present",
     "tech": ["React", "TypeScript", "Konva", "Zustand", "Tailwind CSS", "Vitest", "Playwright"],
     "code": "https://github.com/alondralezfra/dance-360"
   },
   {
+    "id": "orion-trading",
     "title": "OrionTrading.pro Stock Trading Platform",
+    "summary": "A simulated stock trading platform built by a 30-developer team; I built the ledger interface.",
     "description": "Collaborated on a 30-developer project to build a simulated stock trading platform. Implemented the ledger interface for account activity and financial summaries, created a mock backend to enable parallel frontend development, and worked with the infrastructure team to define REST API contracts and map transaction, order, and account schemas to a Bigtable-backed backend.",
+    "details": [
+      "Scale: a 30-developer team split into frontend, backend and infrastructure groups, so most of the work was agreeing on interfaces between them.",
+      "My part: I implemented the ledger interface, which shows account activity and financial summaries.",
+      "Unblocking parallel work: I created a mock backend so frontend development could continue before the real services existed, then swapped to the real API once it was ready.",
+      "Contracts and data: I worked with the infrastructure team to define the REST API contracts and to map transaction, order and account schemas onto a Google Cloud Bigtable-backed backend."
+    ],
     "duration": "Jan 2026 - May 2026",
     "tech": ["React", "TypeScript", "Python", "FastAPI", "Google Cloud Bigtable", "REST APIs"],
     "code": "https://github.com/COMP413-S26/comp413frontend",
     "website": "https://oriontrading.pro/#/login"
   },
   {
+    "id": "react-portfolio",
     "title": "Minimalist React Portfolio",
+    "summary": "My first portfolio: accessible, responsive and typed, with end-to-end tests.",
     "description": "Built a clean, minimalist developer portfolio focused on accessibility, responsive design, and fast performance. Implemented reusable React components, route-based navigation, and typed props with TypeScript. Added Cypress E2E tests to validate navigation, links, and form interactions.",
+    "details": [
+      "Goal: a clean portfolio that is fast, responsive and accessible rather than flashy.",
+      "Implementation: reusable React components with typed props in TypeScript, driven by JSON data for projects and experience.",
+      "Testing: Cypress end-to-end tests validate navigation, links and form interactions.",
+      "What's next: this site is being remade as the cafe you are looking at now."
+    ],
     "duration": "Dec 2025",
     "tech": ["React", "TypeScript", "JavaScript/JSX", "Cypress"],
     "code": "https://github.com/alondralezfra/Portfolio",
     "website": "https://alondralezfra.github.io/Portfolio/"
   },
   {
+    "id": "m3ssag1n8",
     "title": "M3ssag1n8 – Real-Time Messaging App with Custom MVC Architecture",
+    "summary": "A real-time messaging app on a custom MVC architecture of Web Components and strict TypeScript.",
     "description": "Designed a custom MVC architecture using Web Components and strictly typed TypeScript to enable modularity, testability, and low coupling. Implemented real-time messaging with SSE, safe teardown of subscriptions, and concurrency control with AbortController. Added full post-editing functionality via PUT overwrite while preserving data integrity. Enforced JSON Schema validation at API boundaries to prevent malformed data from entering the system.",
+    "details": [
+      "Architecture: a custom MVC built from Web Components and strictly typed TypeScript, chosen for modularity, testability and low coupling.",
+      "Real time: messages arrive over server-sent events (SSE). Subscriptions are torn down safely, and AbortController handles concurrency so stale requests cannot overwrite newer state.",
+      "Editing: posts can be edited through a PUT overwrite that preserves data integrity.",
+      "Validation: JSON Schema validation at the API boundaries keeps malformed data out of the system."
+    ],
     "duration": "Oct 2025 - Dec 2025",
     "tech": ["TypeScript", "HTML/CSS", "Cypress"]
   },
   {
+    "id": "owldb",
     "title": "OwlDB – Custom NoSQL Document Database and RESTful Service",
+    "summary": "A NoSQL document database in Go with hierarchical JSON, auth and real-time subscriptions.",
     "description": "Developed a production-grade NoSQL database in Go supporting hierarchical JSON storage, authentication, and real-time subscriptions. Implemented a concurrent skip list index with O(log n) operations, achieving 1000+ ops/sec. Built atomic JSON patching and transaction semantics to guarantee all-or-nothing updates. Designed modular architecture emphasizing extensibility, schema validation, and fault tolerance.",
+    "details": [
+      "Scope: a document database and RESTful service in Go with hierarchical JSON storage, authentication and real-time subscriptions.",
+      "Performance: a concurrent skip list index gives O(log n) operations and sustained 1000+ operations per second.",
+      "Correctness: atomic JSON patching and transaction semantics guarantee all-or-nothing updates.",
+      "Design: a modular architecture built for extensibility, with schema validation and fault tolerance."
+    ],
     "duration": "Aug 2025 - Nov 2025",
     "tech": ["Go"]
   },
   {
+    "id": "iloc-compiler",
     "title": "ILOC Compiler",
+    "summary": "A four-stage compiler for ILOC with cost-aware register allocation.",
     "description": "Built a four-stage compiler (scanner, parser, renamer, allocator) for ILOC achieving O(n) performance across multiple instruction classes. Implemented single-pass renaming with next-use analysis and cost-aware register allocation using spill heuristics. Improved scanning performance 3× through O(1) token classification and lightweight data structures.",
+    "details": [
+      "Pipeline: scanner, parser, renamer and register allocator, each as its own stage.",
+      "Renaming: single-pass renaming with next-use analysis.",
+      "Allocation: cost-aware register allocation that uses spill heuristics to decide what leaves a register.",
+      "Speed: O(n) performance across multiple instruction classes, and a 3× faster scanner thanks to O(1) token classification and lightweight data structures."
+    ],
     "duration": "Aug 2025 - Dec 2025",
     "tech": ["Java"]
   },
   {
+    "id": "powerpuff",
     "title": "Powerpuff – Women’s Community Platform",
+    "summary": "A full-stack platform where women share app, product and travel recommendations.",
     "description": "Developed a full-stack platform for women to share app, product, and travel recommendations. Built recommendation submission workflows and admin approval features. Deployed using MongoDB Atlas and Render with secure environment configuration. Optimized article rendering by caching React state updates, improving load speed by ~40%.",
+    "details": [
+      "Product: members submit recommendations, and an admin approval step controls what is published.",
+      "Stack: React, Node.js, Express.js and MongoDB, deployed on MongoDB Atlas and Render with secure environment configuration.",
+      "Performance: caching React state updates in article rendering improved load speed by about 40%."
+    ],
     "duration": "Jul 2025 - Aug 2025",
     "tech": ["React", "MongoDB", "Node.js", "Express.js", "JavaScript"],
     "code": "https://github.com/haianhng31/Powerpuff-girls"
   },
   {
+    "id": "depression-analysis",
     "title": "AIML Depression Analysis",
+    "summary": "Predictive models for depression risk, with about 20% better accuracy after feature selection.",
     "description": "Built predictive models for depression risk using Random Forest, Logistic Regression, and XGBoost. Performed data cleaning, encoding, SMOTE oversampling, and feature selection. Improved Random Forest accuracy by ~20% through targeted feature selection and identified key predictors including alcohol use, income, and substance abuse.",
+    "details": [
+      "Models: Random Forest, Logistic Regression and XGBoost, compared for predicting depression risk.",
+      "Data work: cleaning, encoding, SMOTE oversampling for class imbalance, and feature selection.",
+      "Result: targeted feature selection improved Random Forest accuracy by about 20%, and the key predictors included alcohol use, income and substance abuse."
+    ],
     "duration": "Dec 2024 - Mar 2025",
     "tech": ["Python", "NumPy", "Matplotlib", "Scikit-learn"],
     "code": "https://github.com/alondralezfra/AIML-Depression-Analysis"
   },
   {
+    "id": "feat",
     "title": "FEAT – Feedback and Evaluation via Automated Tests",
+    "summary": "An automated black-box testing framework with 95% coverage from 12% of the training programs.",
     "description": "Engineered an automated black-box testing framework that achieved 95% coverage using only 12% of available training programs. Built JUnit and Python integration tests and accelerated execution by 40% via minimal hitting-set reduction. Integrated Python and Java through process I/O for real-time feedback and reporting.",
+    "details": [
+      "Result: 95% coverage using only 12% of the available training programs.",
+      "Speed: a minimal hitting-set reduction cut execution time by 40%.",
+      "Integration: Python and Java talk through process I/O to give real-time feedback and reporting, backed by JUnit and Python integration tests."
+    ],
     "duration": "Sep 2024 - Nov 2024",
     "tech": ["Java", "Python"]
   },
   {
+    "id": "vct-hackathon",
     "title": "VCT Hackathon – Esports Manager Challenge",
+    "summary": "An LLM-powered esports analyst assistant on Amazon Bedrock with Lambda ETL pipelines.",
     "description": "Built an LLM-powered esports analyst assistant using Amazon Bedrock. Connected multiple esports datasets stored in S3 and automated ingestion through Lambda-based ETL pipelines. Reduced knowledge-base configuration effort by ~20% and improved model performance by ~30% via structured data enrichment.",
+    "details": [
+      "Assistant: an LLM-powered esports analyst built on Amazon Bedrock.",
+      "Data: several esports datasets in S3, ingested automatically by Lambda-based ETL pipelines.",
+      "Results: about 20% less knowledge-base configuration effort, and about 30% better model performance from structured data enrichment."
+    ],
     "duration": "Sep 2024 - Oct 2024",
     "tech": ["Python", "boto3", "AWS", "S3", "AWS CLI"]
   },
   {
+    "id": "rotten-tomatoes",
     "title": "Rotten Tomatoes Movie Review Analysis",
+    "summary": "Cleaned 15k+ review records and reached 87% model accuracy with K-Means clustering.",
     "description": "Cleaned and processed 15k+ Rotten Tomatoes records, resolving 3k+ duplicates and standardizing critic ratings. Achieved 87% model accuracy using K-Means clustering and evaluation metrics. Analyzed critic-ranking stability and found 20% variance between mean and KNN imputation strategies.",
+    "details": [
+      "Cleaning: 15k+ records processed, 3k+ duplicates resolved and critic ratings standardized.",
+      "Modeling: 87% accuracy using K-Means clustering and evaluation metrics.",
+      "Analysis: critic-ranking stability showed 20% variance between mean imputation and KNN imputation."
+    ],
     "duration": "Sep 2024",
     "tech": ["Python", "Scikit-learn", "NumPy", "Matplotlib"]
   },
   {
+    "id": "active",
     "title": "Active – Social Fitness App",
+    "summary": "A social fitness app in React Native; I built reusable components, navigation and the Goals screen.",
     "description": "Designed reusable TypeScript UI components and improved navigation efficiency by 10% using Expo Router. Built a bottom-tab navigation system and implemented responsive layouts with Flexbox. Led the design of the Goals screen ensuring consistency across device sizes.",
+    "details": [
+      "Components: reusable TypeScript UI components shared across screens.",
+      "Navigation: a bottom-tab system built with Expo Router, which improved navigation efficiency by 10%.",
+      "Layout: responsive Flexbox layouts, and I led the design of the Goals screen so it stays consistent across device sizes."
+    ],
     "duration": "Jul 2024 - Aug 2024",
     "tech": ["React Native", "Expo Go", "JavaScript", "TypeScript"],
     "code": "https://github.com/alondralezfra/Active"
   },
   {
+    "id": "directed-mst",
     "title": "Transmission of Bacterial Infection via Directed MST",
+    "summary": "Modeled pathogen transmission among 18 patients with rooted directed minimum spanning trees.",
     "description": "Computed rooted directed minimum spanning trees on weighted digraphs to model pathogen transmission. Analyzed spread of Klebsiella pneumoniae among 18 patients using genetic distance graphs to infer likely transmission pathways.",
+    "details": [
+      "Method: rooted directed minimum spanning trees on weighted digraphs.",
+      "Application: genetic distance graphs for Klebsiella pneumoniae among 18 patients were used to infer the most likely transmission pathways."
+    ],
     "duration": "Mar 2024",
     "tech": ["Python"]
   }

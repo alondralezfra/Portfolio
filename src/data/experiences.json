@@ -1,22 +1,48 @@
 [
   {
+    "id": "texas-capital",
     "title": "Software Engineer - Full-Stack",
     "company": "Texas Capital Bancshares, Inc.",
+    "summary": "Full-stack features across Spring Boot microservices and an Angular/Ionic frontend for a commercial banking Customer 360 platform.",
     "description": "Own full-stack features across a Spring Boot/Java microservices backend and an Angular/Ionic frontend for a commercial banking Customer 360 platform. Learned Spring Boot and Angular from scratch within two weeks and shipped a first story within four weeks. Built customer lifecycle features (soft delete and restore with conflict detection, partial indexes, native SQL), refactored the transaction search API to consolidate duplicate query logic and fix row fan-out and misclassified transaction types, and delivered overdraft decisioning enhancements (real-time balance display, configurable email notifications, bulk assignment). Integrated the Nautilus document-imaging system to surface check images in transaction details with PII-safe logging. Maintained and extended an 8000+ test regression suite, drove multi-round PR reviews that caught security and correctness issues pre-merge, diagnosed a silent AWS email-job failure via CloudWatch, and helped pilot a cross-team agentic development initiative (Copilot agents, MCP integrations), onboarding 4 teams across 13 repositories.",
+    "details": [
+      "Ramp-up: I learned Spring Boot and Angular from scratch within two weeks, with no prior experience in either. I built a working local environment through a multi-step, multi-team access process, connected with teammates one by one to close the mentor gap, and used GitHub Copilot to produce architecture diagrams, service READMEs and API/AWS documentation. My first completed story shipped within four weeks.",
+      "Customer lifecycle: I built a soft-delete endpoint (refactored from CIF-number-based to ID-based deletion, with native SQL for the delete query) and a readd flow for previously deleted customers that detects conflicts and offers restore or create-new. That meant replacing a UNIQUE constraint with a partial index and reworking sync logic to stop duplicate readds while soft-deleting inactive records.",
+      "Transactions: I fixed how previous-day transaction descriptions are derived (with repository-level tests), excluded same-day transactions from T-1 views, restored a fix reverted by a conflicting PR, and consolidated duplicate query branches into a single transaction builder. That also fixed row fan-out from a wire-details join and scoped ACH return-reason matching correctly.",
+      "Overdraft decisioning: I skipped email notifications for RM and credit approvers and extended that to bulk item assignment, with safeguards such as requiring two or more selected rows and proper cancel and undo behavior. I added a real-time available-balance column backed by a new batch balance endpoint, with unit tests, and simplified the T-1 table by removing an internal-only ID column.",
+      "Check images: on the backend I integrated Nautilus to retrieve multi-page TIFF check images and split them into front and back, with account numbers masked in logs and proper error handling for failed downloads. On the frontend I added an ellipsis action on Debit Check rows that opens a check-image modal matched on transaction type, redesigned to the Figma design with accessibility fixes.",
+      "Quality and unblocking: I extended an 8000+ test regression suite and drove multi-round PR reviews that caught real security and correctness issues before merge. When AWS email notification jobs silently stopped, I diagnosed it in CloudWatch and escalated it, which unblocked several user stories. When blocked on data, access or approvals, I contacted people directly instead of waiting on tickets.",
+      "Agentic development: I helped pilot a cross-team initiative distributed as an onboarding bundle of custom Copilot agents, Gitnexus and Speckit tooling, and an MCP server configuration. I root-caused a registry and security blocker, validated a fix, and drove onboarding across 13 repositories for 4 teams."
+    ],
     "duration": "June 2026 - Present",
     "tech": ["Java", "Spring Boot", "Angular", "Ionic", "TypeScript", "SQL", "AWS CloudWatch", "GitHub Copilot", "MCP"]
   },
   {
+    "id": "somos",
     "title": "Cloud Operations Intern",
     "company": "Somos Inc.",
+    "summary": "Migrated 180+ CI/CD pipelines from Codefresh to GitHub Actions across 200+ repositories.",
     "description": "Led the modernization of CI/CD by migrating 180+ pipelines from Codefresh to GitHub Actions across 200+ repositories. Built reusable workflow templates, automated image promotion and infrastructure provisioning, and improved release reliability through standardized builds, security scanning, and deployment automation. Contributed to Backstage onboarding by configuring service catalog metadata and collaborating with cross-functional teams to streamline DevOps practices.",
+    "details": [
+      "Migration: I led the move of 180+ pipelines from Codefresh to GitHub Actions across 200+ repositories.",
+      "Reuse: I built reusable workflow templates so teams share one standardized build, security scanning and deployment process instead of copying pipelines.",
+      "Automation: image promotion and infrastructure provisioning were automated, which improved release reliability.",
+      "Backstage: I configured service catalog metadata for Backstage onboarding and worked with cross-functional teams to streamline DevOps practices."
+    ],
     "duration": "June 2025 - Aug 2025",
     "tech": ["GitHub Actions", "Docker", "Kubernetes", "Terraform", "Backstage", "JFrog", "AWS ECR"]
   },
   {
+    "id": "techwise",
     "title": "Software Engineer Apprentice",
     "company": "TechWise (Sponsored by Google)",
+    "summary": "A competitive 18-month apprenticeship blending advanced coursework with hands-on software engineering.",
     "description": "Selected for a competitive 18-month apprenticeship blending advanced coursework with hands-on software engineering projects. Built full-stack applications, practiced Agile development, conducted code reviews, and wrote unit tests to ensure production-quality code. Delivered technical presentations, collaborated on system design decisions, and implemented projects in AI/ML, web development, and mobile app development.",
+    "details": [
+      "Program: a competitive 18-month apprenticeship that paired advanced coursework with hands-on projects.",
+      "Practice: I built full-stack applications, worked in Agile teams, conducted code reviews and wrote unit tests to keep code production quality.",
+      "Breadth: projects spanned AI/ML, web development and mobile apps, and I delivered technical presentations and collaborated on system design decisions."
+    ],
     "duration": "Mar 2024 - Sep 2025",
     "tech": ["React", "Node.js", "Python", "TypeScript", "MongoDB", "Express.js"]
   }
