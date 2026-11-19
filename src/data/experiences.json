@@ -1,5 +1,12 @@
 [
   {
+    "title": "Software Engineer - Full-Stack",
+    "company": "Texas Capital Bancshares, Inc.",
+    "description": "Own full-stack features across a Spring Boot/Java microservices backend and an Angular/Ionic frontend for a commercial banking Customer 360 platform. Learned Spring Boot and Angular from scratch within two weeks and shipped a first story within four weeks. Built customer lifecycle features (soft delete and restore with conflict detection, partial indexes, native SQL), refactored the transaction search API to consolidate duplicate query logic and fix row fan-out and misclassified transaction types, and delivered overdraft decisioning enhancements (real-time balance display, configurable email notifications, bulk assignment). Integrated the Nautilus document-imaging system to surface check images in transaction details with PII-safe logging. Maintained and extended an 8000+ test regression suite, drove multi-round PR reviews that caught security and correctness issues pre-merge, diagnosed a silent AWS email-job failure via CloudWatch, and helped pilot a cross-team agentic development initiative (Copilot agents, MCP integrations), onboarding 4 teams across 13 repositories.",
+    "duration": "June 2026 - Present",
+    "tech": ["Java", "Spring Boot", "Angular", "Ionic", "TypeScript", "SQL", "AWS CloudWatch", "GitHub Copilot", "MCP"]
+  },
+  {
     "title": "Cloud Operations Intern",
     "company": "Somos Inc.",
     "description": "Led the modernization of CI/CD by migrating 180+ pipelines from Codefresh to GitHub Actions across 200+ repositories. Built reusable workflow templates, automated image promotion and infrastructure provisioning, and improved release reliability through standardized builds, security scanning, and deployment automation. Contributed to Backstage onboarding by configuring service catalog metadata and collaborating with cross-functional teams to streamline DevOps practices.",

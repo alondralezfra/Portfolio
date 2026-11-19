@@ -1,5 +1,12 @@
 [
   {
+    "title": "Dance 360 – Workspace for Dance Directors",
+    "description": "Built a web workspace for dance directors that links formations, cast, parts, music, and resources in one place. Implemented a canvas-based formation editor with timing in counts, a roster and part-assignment grid linked to dot colors, and an audio Song tab with waveform, tempo-map estimation, metronome playback, and tap-to-snap. Backed by versioned local persistence, a playback engine, and a full verification gate of unit, coverage, accessibility, and browser tests.",
+    "duration": "Nov 2026 - Present",
+    "tech": ["React", "TypeScript", "Konva", "Zustand", "Tailwind CSS", "Vitest", "Playwright"],
+    "code": "https://github.com/alondralezfra/dance-360"
+  },
+  {
     "title": "OrionTrading.pro Stock Trading Platform",
     "description": "Collaborated on a 30-developer project to build a simulated stock trading platform. Implemented the ledger interface for account activity and financial summaries, created a mock backend to enable parallel frontend development, and worked with the infrastructure team to define REST API contracts and map transaction, order, and account schemas to a Bigtable-backed backend.",
     "duration": "Jan 2026 - May 2026",
