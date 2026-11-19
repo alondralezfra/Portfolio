@@ -1,4 +1,13 @@
 import "cypress-axe";
+import type { Result } from "axe-core";
+
+/** Prints each axe violation (rule, impact and elements) so a CI failure is diagnosable from the log. */
+function logViolations(violations: Result[]) {
+  for (const v of violations) {
+    const nodes = v.nodes.map((n) => n.target.join(" ")).join("\n    ");
+    cy.task("log", `AXE ${v.impact}: ${v.id} - ${v.help}\n    ${nodes}`);
+  }
+}
 
 const tab = (name: string) => cy.contains('[role="tab"]', name);
 
@@ -82,7 +91,7 @@ describe("Portfolio cafe", () => {
       it(`has no detectable violations on ${name}`, () => {
         tab(name).click();
         cy.injectAxe();
-        cy.checkA11y();
+        cy.checkA11y(undefined, undefined, logViolations);
       });
     }
   });

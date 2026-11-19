@@ -60,7 +60,9 @@ export default function AppView() {
         <h1 data-testid="title">{state.title}</h1>
         <p data-testid="tagline">{state.tagline}</p>
       </header>
-      <Tabs tabs={TABS} activeId={activeId} onSelect={selectTab} />
+      <nav aria-label="Cafe sections">
+        <Tabs tabs={TABS} activeId={activeId} onSelect={selectTab} />
+      </nav>
       <main id="main">
         {showControls && (
           <div className="controls">
