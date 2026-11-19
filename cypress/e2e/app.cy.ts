@@ -99,7 +99,8 @@ describe("Portfolio cafe", () => {
 
     it("closes with Escape", () => {
       openCard();
-      cy.get("dialog[open]").type("{esc}");
+      // A dialog is not typeable itself; the key press goes to a focused control and bubbles up to it.
+      cy.contains("dialog button", "Flip card").focus().type("{esc}");
       cy.get("dialog[open]").should("not.exist");
     });
 
