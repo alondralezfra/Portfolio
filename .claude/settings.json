@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run *)",
+      "Bash(npm test*)",
+      "Bash(npx vitest *)",
+      "Bash(git status*)",
+      "Bash(git diff*)",
+      "Bash(git log*)"
+    ]
+  },
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node scripts/stop-gate.mjs",
+            "timeout": 600,
+            "statusMessage": "Verifying (tests, build, e2e + accessibility)..."
+          }
+        ]
+      }
+    ]
+  }
+}
