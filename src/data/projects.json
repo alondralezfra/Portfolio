@@ -18,10 +18,10 @@
     "id": "orion-trading",
     "title": "OrionTrading.pro Stock Trading Platform",
     "summary": "A simulated stock trading platform built by a 30-developer team; I built the ledger interface.",
-    "description": "Collaborated on a 30-developer project to build a simulated stock trading platform. Implemented the ledger interface for account activity and financial summaries, created a mock backend to enable parallel frontend development, and worked with the infrastructure team to define REST API contracts and map transaction, order, and account schemas to a Bigtable-backed backend.",
+    "description": "Collaborated on a 30-developer project to build a simulated stock trading platform. Implemented the ledger interface for account activity and financial summaries, created a mock backend to enable parallel frontend development, defined REST API contracts with the infrastructure team, and added pagination and filtering in React for scalable transaction history retrieval.",
     "details": [
       "Scale: a 30-developer team split into frontend, backend and infrastructure groups, so most of the work was agreeing on interfaces between them.",
-      "My part: I implemented the ledger interface, which shows account activity and financial summaries.",
+      "My part: I implemented the ledger interface, which shows account activity and financial summaries, with pagination and filtering in React so large transaction histories load at a manageable size.",
       "Unblocking parallel work: I created a mock backend so frontend development could continue before the real services existed, then swapped to the real API once it was ready.",
       "Contracts and data: I worked with the infrastructure team to define the REST API contracts and to map transaction, order and account schemas onto a Google Cloud Bigtable-backed backend."
     ],
@@ -71,7 +71,7 @@
       "Correctness: atomic JSON patching and transaction semantics guarantee all-or-nothing updates.",
       "Design: a modular architecture built for extensibility, with schema validation and fault tolerance."
     ],
-    "duration": "Aug 2025 - Nov 2025",
+    "duration": "Aug 2025 - Oct 2025",
     "tech": ["Go"]
   },
   {

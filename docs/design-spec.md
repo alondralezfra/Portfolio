@@ -19,7 +19,7 @@ Tabs follow the WAI-ARIA tabs pattern (arrow keys, Home/End, roving tabindex). O
 - **Sweetness:** a radio group, so it is keyboard- and screen-reader-friendly. *Light* = one-line summary, *Medium* = full description, *Deep* = technical write-up (`details`). Applies to Bread Tray and Drinks.
 - **View as list (planned):** when the illustrated tray exists, a global toggle swaps the tray and drinks board for the plain menu. Today the plain menu is the only view, and it is always fully readable with links to code and website.
 - **Conchas tray (planned):** the tray of illustrated breads, gently swaying (CSS transform, off under `prefers-reduced-motion`, paused on hover and focus). Opening a bread shows the same content as the list item.
-- **Business card (planned):** a header button opens a dialog (focus trapped, Escape closes) with a flippable cafe company card: email, GitHub, LinkedIn, resume. Real links plus a copy-email button.
+- **Business card:** a header button opens a native `<dialog>` (focus trapped and restored by the browser, Escape and backdrop click close it) with a flippable cafe company card. Front: name, role, tagline. Back: email (mailto link plus Copy email button with a status message), LinkedIn and GitHub. Flipping is an instant swap, so it is already reduced-motion safe. Phone number and resume are deliberately not on the card. Content in `src/data/contact.json`.
 
 ## Our Story (corkboard)
 Pinned items in logical DOM order: owner's note with origin (born in Reynosa, Tamaulipas; raised in McAllen, Texas), hobby cards with a photo and short description (dancing, euphonium, guitar), the Valley note (northern Mexico and the Rio Grande Valley), and loose photos. Photos are placeholders until added; each needs `photoAlt`. The culture note text is a draft marked `TODO` for me to edit.
@@ -44,7 +44,7 @@ Placeholders first (dashed boxes). Real art (hand-drawn or commissioned) comes l
 
 ## Build order
 - [x] Data model, plain list view, tab bar, Brew your stack, sweetness, Our Story layout (placeholders)
-- [ ] Business card dialog
+- [x] Business card dialog
 - [ ] Illustrated tray and drinks board over the same data, plus the View as list toggle
 - [ ] Real photos, Our Story copy, art
 - [ ] Measure dark-theme contrast; visual pass at phone and desktop widths

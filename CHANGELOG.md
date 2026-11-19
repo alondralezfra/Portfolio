@@ -6,3 +6,5 @@
 - Removed the fluid-simulation background and creature background.
 - Added Vitest unit tests, Cypress end-to-end tests with axe accessibility checks, `npm run verify`, a Stop hook, and a CI workflow for pull requests.
 - Wrapped the tab bar in a labelled `nav` landmark (axe accessibility fix) and made the accessibility test print each violation in the log.
+- Added the cafe company card: a header button opens a flippable dialog with email (with copy button), LinkedIn and GitHub.
+- Synced details with the resume: job title "Full-Stack Engineer", OwlDB dates Aug-Oct 2025, OrionTrading pagination and filtering.

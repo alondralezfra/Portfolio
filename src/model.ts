@@ -1,6 +1,7 @@
 import experiences from "./data/experiences.json";
 import projects from "./data/projects.json";
 import story from "./data/story.json";
+import contact from "./data/contact.json";
 import type { MenuItem } from "./menu";
 
 /** A project (a bread on the tray). */
@@ -30,12 +31,22 @@ export interface Story {
   photos: { id: string; src: string | null; alt: string; caption: string }[];
 }
 
+export interface Contact {
+  name: string;
+  role: string;
+  tagline: string;
+  email: string;
+  linkedin: string;
+  github: string;
+}
+
 export interface AppState {
   title: string;
   tagline: string;
   experiences: Experience[];
   projects: Project[];
   story: Story;
+  contact: Contact;
 }
 
 /** Holds the site's content. Components get a copy and never edit it. */
@@ -46,6 +57,7 @@ export class Model {
     experiences: experiences as Experience[],
     projects: projects as Project[],
     story: story as Story,
+    contact,
   };
 
   getState(): AppState {
