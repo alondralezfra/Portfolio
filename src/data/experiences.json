@@ -1,7 +1,7 @@
 [
   {
     "id": "texas-capital",
-    "title": "Software Engineer - Full-Stack",
+    "title": "Full-Stack Engineer",
     "company": "Texas Capital Bancshares, Inc.",
     "summary": "Full-stack features across Spring Boot microservices and an Angular/Ionic frontend for a commercial banking Customer 360 platform.",
     "description": "Own full-stack features across a Spring Boot/Java microservices backend and an Angular/Ionic frontend for a commercial banking Customer 360 platform. Learned Spring Boot and Angular from scratch within two weeks and shipped a first story within four weeks. Built customer lifecycle features (soft delete and restore with conflict detection, partial indexes, native SQL), refactored the transaction search API to consolidate duplicate query logic and fix row fan-out and misclassified transaction types, and delivered overdraft decisioning enhancements (real-time balance display, configurable email notifications, bulk assignment). Integrated the Nautilus document-imaging system to surface check images in transaction details with PII-safe logging. Maintained and extended an 8000+ test regression suite, drove multi-round PR reviews that caught security and correctness issues pre-merge, diagnosed a silent AWS email-job failure via CloudWatch, and helped pilot a cross-team agentic development initiative (Copilot agents, MCP integrations), onboarding 4 teams across 13 repositories.",
