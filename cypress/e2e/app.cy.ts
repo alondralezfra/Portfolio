@@ -86,6 +86,53 @@ describe("Portfolio cafe", () => {
     cy.get("@consoleError").should("not.have.been.called");
   });
 
+  describe("business card", () => {
+    const openCard = () => cy.contains("button", "Get my card").click();
+
+    it("opens a dialog with the front of the card and closes it with the button, returning focus", () => {
+      openCard();
+      cy.get("dialog[open]").should("be.visible").and("contain.text", "Alondra Franco");
+      cy.contains("dialog button", "Close").click();
+      cy.get("dialog[open]").should("not.exist");
+      cy.contains("button", "Get my card").should("have.focus");
+    });
+
+    it("closes with Escape", () => {
+      openCard();
+      cy.get("dialog[open]").type("{esc}");
+      cy.get("dialog[open]").should("not.exist");
+    });
+
+    it("flips to the contact links", () => {
+      openCard();
+      cy.contains("dialog a", "LinkedIn").should("not.be.visible");
+      cy.contains("dialog button", "Flip card").click();
+      cy.contains("dialog a", "LinkedIn")
+        .should("be.visible")
+        .and("have.attr", "href", "https://www.linkedin.com/in/alondra-franco-/");
+      cy.contains("dialog a", "GitHub").should("have.attr", "href", "https://github.com/alondralezfra");
+      cy.contains("dialog a", "alondralezfra@hotmail.com").should("have.attr", "href", "mailto:alondralezfra@hotmail.com");
+    });
+
+    it("copies the email and announces it", () => {
+      cy.window().then((win) => {
+        cy.stub(win.navigator.clipboard, "writeText").as("writeText").resolves();
+      });
+      openCard();
+      cy.contains("dialog button", "Flip card").click();
+      cy.contains("dialog button", "Copy email").click();
+      cy.get("@writeText").should("have.been.calledWith", "alondralezfra@hotmail.com");
+      cy.get("dialog [role=status]").should("contain.text", "copied");
+    });
+
+    it("has no detectable accessibility violations while open", () => {
+      openCard();
+      cy.contains("dialog button", "Flip card").click();
+      cy.injectAxe();
+      cy.checkA11y(undefined, undefined, logViolations);
+    });
+  });
+
   describe("accessibility (axe)", () => {
     for (const name of ["Bread Tray", "Drinks", "Our Story"]) {
       it(`has no detectable violations on ${name}`, () => {

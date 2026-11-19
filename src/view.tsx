@@ -6,6 +6,7 @@ import { BrewFilter } from "./components/BrewFilter";
 import { SweetnessPicker } from "./components/SweetnessPicker";
 import { MenuList } from "./components/MenuList";
 import { OurStory } from "./components/OurStory";
+import { BusinessCard } from "./components/BusinessCard";
 
 const model = new Model();
 
@@ -59,6 +60,7 @@ export default function AppView() {
       <header className="site-header">
         <h1 data-testid="title">{state.title}</h1>
         <p data-testid="tagline">{state.tagline}</p>
+        <BusinessCard contact={state.contact} />
       </header>
       <nav aria-label="Cafe sections">
         <Tabs tabs={TABS} activeId={activeId} onSelect={selectTab} />
