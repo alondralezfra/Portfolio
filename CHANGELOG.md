@@ -1,0 +1,7 @@
+# Changelog
+
+## Unreleased
+- Remade the site as a panadería-café: tab bar (Bread Tray, Drinks, Our Story), "Brew your stack" ingredient filter, sweetness (level of detail) picker, plain readable menu lists, and an Our Story corkboard with placeholder photos.
+- Added Texas Capital Bancshares experience and the Dance 360 project; added `summary` and drafted `details` write-ups to every project and job.
+- Removed the fluid-simulation background and creature background.
+- Added Vitest unit tests, Cypress end-to-end tests with axe accessibility checks, `npm run verify`, a Stop hook, and a CI workflow for pull requests.
