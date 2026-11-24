@@ -8,3 +8,5 @@
 - Wrapped the tab bar in a labelled `nav` landmark (axe accessibility fix) and made the accessibility test print each violation in the log.
 - Added the cafe company card: a header button opens a flippable dialog with email (with copy button), LinkedIn and GitHub.
 - Synced details with the resume: job title "Full-Stack Engineer", OwlDB dates Aug-Oct 2025, OrionTrading pagination and filtering.
+- Added the real Our Story photos (owner, dancing, euphonium, guitar and four loose photos) under `public/images/story/`, resized to at most 1200px.
+- Renamed the Dance 360 project to Formism and linked its live site, https://formism.app/, and its renamed code repository.

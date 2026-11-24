@@ -22,7 +22,7 @@ Tabs follow the WAI-ARIA tabs pattern (arrow keys, Home/End, roving tabindex). O
 - **Business card:** a header button opens a native `<dialog>` (focus trapped and restored by the browser, Escape and backdrop click close it) with a flippable cafe company card. Front: name, role, tagline. Back: email (mailto link plus Copy email button with a status message), LinkedIn and GitHub. Flipping is an instant swap, so it is already reduced-motion safe. Phone number and resume are deliberately not on the card. Content in `src/data/contact.json`.
 
 ## Our Story (corkboard)
-Pinned items in logical DOM order: owner's note with origin (born in Reynosa, Tamaulipas; raised in McAllen, Texas), hobby cards with a photo and short description (dancing, euphonium, guitar), the Valley note (northern Mexico and the Rio Grande Valley), and loose photos. Photos are placeholders until added; each needs `photoAlt`. The culture note text is a draft marked `TODO` for me to edit.
+Pinned items in logical DOM order: owner's note with origin (born in Reynosa, Tamaulipas; raised in McAllen, Texas), hobby cards with a photo and short description (dancing, euphonium, guitar), the Valley note (northern Mexico and the Rio Grande Valley), and loose photos. Photos live in `public/images/story/`; `story.json` stores the path (e.g. `images/story/cat_selfie.jpeg`) and the Photo component adds the site base path. Each photo needs alt text. Present: owner, the three hobbies and four loose photos, resized to at most 1200px on the long side. The culture note text is a draft marked `TODO` for me to edit.
 
 ## Content model
 `src/data/projects.json`, `experiences.json`, `story.json`. Every project and job: `id`, `title`, `summary`, `description`, `details[]`, `duration`, `tech[]`, plus `website`/`code` (projects) or `company` (jobs). Deep write-ups are drafted from the existing descriptions and my notes, for me to edit; they contain no figures that weren't already in the descriptions.
@@ -46,7 +46,7 @@ Placeholders first (dashed boxes). Real art (hand-drawn or commissioned) comes l
 - [x] Data model, plain list view, tab bar, Brew your stack, sweetness, Our Story layout (placeholders)
 - [x] Business card dialog
 - [ ] Illustrated tray and drinks board over the same data, plus the View as list toggle
-- [ ] Real photos, Our Story copy, art
+- [ ] Our Story copy, art (photos are in)
 - [ ] Measure dark-theme contrast; visual pass at phone and desktop widths
 
 ## Open questions

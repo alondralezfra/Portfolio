@@ -5,8 +5,8 @@
       "I'm Alondra Franco, a senior at Rice University studying computer science, with a strong interest in backend systems and cloud architecture. I communicate clearly, motivate teams with energy and optimism, and naturally take initiative in group projects, either as a leader or as a facilitator who keeps collaboration flowing smoothly.",
       "What drives me most is the opportunity to help others and to keep learning every day. I value openness, mentorship, diversity and impact, and I believe great work happens when people feel happy and supported throughout the process."
     ],
-    "photo": null,
-    "photoAlt": "TODO: describe the photo of Alondra"
+    "photo": "images/story/cat_selfie.jpeg",
+    "photoAlt": "Alondra smiling in round glasses, with an orange and white cat on her shoulder in a car"
   },
   "origin": {
     "heading": "Where I'm from",
@@ -16,23 +16,23 @@
     {
       "id": "dance",
       "title": "Dancing",
-      "description": "I have danced since high school and have been on four different dance teams. I also directed dances, which is what inspired Dance 360.",
-      "photo": null,
-      "photoAlt": "TODO: describe the dance photo"
+      "description": "I have danced since high school and have been on four different dance teams. I also directed dances, which is what inspired Formism.",
+      "photo": "images/story/dance_performance.jpeg",
+      "photoAlt": "Alondra and three teammates posing at night in matching blue and white racing-style jackets and white pants"
     },
     {
       "id": "euphonium",
       "title": "Euphonium",
       "description": "I have played euphonium since elementary school and made the Texas All-State band my senior year of high school.",
-      "photo": null,
-      "photoAlt": "TODO: describe the euphonium photo"
+      "photo": "images/story/euphonium_selfie.jpeg",
+      "photoAlt": "Alondra smiling and holding a euphonium in front of a sign reading TMEA 5A All-State Symphonic Band"
     },
     {
       "id": "guitar",
       "title": "Guitar",
       "description": "I have played guitar since elementary school too, and I love learning Disney songs on it for fun.",
-      "photo": null,
-      "photoAlt": "TODO: describe the guitar photo"
+      "photo": "images/story/guitar_selfie.jpeg",
+      "photoAlt": "Alondra smiling and playing an acoustic guitar beside a glowing lamp"
     }
   ],
   "culture": {
@@ -43,8 +43,29 @@
     ]
   },
   "photos": [
-    { "id": "photo-1", "src": null, "alt": "TODO: describe photo 1", "caption": "TODO" },
-    { "id": "photo-2", "src": null, "alt": "TODO: describe photo 2", "caption": "TODO" },
-    { "id": "photo-3", "src": null, "alt": "TODO: describe photo 3", "caption": "TODO" }
+    {
+      "id": "cat-shoulder",
+      "src": "images/story/cat_selfie2.jpeg",
+      "alt": "Alondra taking a mirror selfie with an orange and white cat draped across her shoulders",
+      "caption": "My cat, who thinks my shoulders are furniture"
+    },
+    {
+      "id": "graduation",
+      "src": "images/story/graduation_family_selfie.jpeg",
+      "alt": "Alondra in a graduation cap and gown holding flowers, surrounded by smiling family in a stadium",
+      "caption": "Graduation night with my family"
+    },
+    {
+      "id": "tree-redwood",
+      "src": "images/story/tree_hugger1.jpeg",
+      "alt": "Alondra smiling over her shoulder while hugging the huge trunk of a tall tree in a park",
+      "caption": "Hugging a very tall tree"
+    },
+    {
+      "id": "tree-pine",
+      "src": "images/story/tree_hugger2.jpeg",
+      "alt": "Alondra in a black cap and glasses smiling while hugging a pine tree trunk",
+      "caption": "Another tree, another hug"
+    }
   ]
 }

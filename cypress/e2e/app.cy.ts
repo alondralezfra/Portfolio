@@ -79,6 +79,26 @@ describe("Portfolio cafe", () => {
     cy.contains("#panel-bread-tray a", "View code").should("have.attr", "rel", "noopener noreferrer");
   });
 
+  it("links Formism to its live site", () => {
+    cy.contains("#panel-bread-tray li", "Formism")
+      .contains("a", "Visit website")
+      .should("have.attr", "href", "https://formism.app/");
+  });
+
+  it("shows the Our Story photos with alt text", () => {
+    cy.visit("/#our-story");
+    cy.get("#panel-our-story img.photo").should("have.length.at.least", 7);
+    // Photos are lazy-loaded, so scroll each into view and wait until it has really loaded.
+    cy.get("#panel-our-story img.photo").each(($img) => {
+      expect($img.attr("alt")).to.not.be.empty;
+      cy.wrap($img)
+        .scrollIntoView()
+        .should(($el) => {
+          expect(($el[0] as HTMLImageElement).naturalWidth).to.be.greaterThan(0);
+        });
+    });
+  });
+
   it("has no console errors on load", () => {
     cy.window().then((win) => {
       cy.spy(win.console, "error").as("consoleError");

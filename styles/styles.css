@@ -376,6 +376,7 @@ main {
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
+  object-position: center 30%;
   border-radius: 8px;
 }
 
