@@ -1,18 +1,19 @@
 [
   {
-    "id": "dance-360",
-    "title": "Dance 360 – Workspace for Dance Directors",
+    "id": "formism",
+    "title": "Formism – Workspace for Dance Directors",
     "summary": "A web workspace that links a dance's formations, cast, parts, music and resources in one place.",
     "description": "Built a web workspace for dance directors that links formations, cast, parts, music, and resources in one place. Implemented a canvas-based formation editor with timing in counts, a roster and part-assignment grid linked to dot colors, and an audio Song tab with waveform, tempo-map estimation, metronome playback, and tap-to-snap. Backed by versioned local persistence, a playback engine, and a full verification gate of unit, coverage, accessibility, and browser tests.",
     "details": [
-      "Why: I directed dances on a college dance team, and formations lived in one app while part assignments, tutorial videos and schedules were scattered across spreadsheets, group chats and Drive folders. Dance 360 connects them, so clicking a dancer shows their parts, formations and videos together.",
+      "Why: I directed dances on a college dance team, and formations lived in one app while part assignments, tutorial videos and schedules were scattered across spreadsheets, group chats and Drive folders. Formism connects them, so clicking a dancer shows their parts, formations and videos together.",
       "Design decision: counts, not seconds, are the source of truth. Formations are stored as a set and a count (for example Set 3, Count 5), and a tempo map (BPM plus where Set 1 Count 1 lands) converts counts to audio time only at playback. Positions over time come from a single playback function rather than being animated inside components.",
       "Engineering: formations are drawn on a canvas, the song tab estimates tempo and first beat and supports a metronome, tap-to-snap, draggable markers and speaker-delay calibration. Saved data is versioned with migrations, and every change goes through a gate of lint, unit tests with coverage, a production build, accessibility checks and browser tests.",
       "Status: the formation editor, roster and parts grid, song and timeline, resources and notes, and overview problem checks are done. Responsive and mobile refinements are still in progress."
     ],
     "duration": "Nov 2026 - Present",
     "tech": ["React", "TypeScript", "Konva", "Zustand", "Tailwind CSS", "Vitest", "Playwright"],
-    "code": "https://github.com/alondralezfra/dance-360"
+    "website": "https://formism.app/",
+    "code": "https://github.com/alondralezfra/formism"
   },
   {
     "id": "orion-trading",

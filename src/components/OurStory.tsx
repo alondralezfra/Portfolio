@@ -5,7 +5,7 @@ interface Props {
 }
 
 function Photo({ src, alt }: { src: string | null; alt: string }) {
-  if (src) return <img src={src} alt={alt} className="photo" />;
+  if (src) return <img src={`${import.meta.env.BASE_URL}${src}`} alt={alt} className="photo" loading="lazy" />;
   // Placeholder until a real photo is added; hidden from assistive tech because it carries no information.
   return <div className="photo placeholder" aria-hidden="true">photo coming soon</div>;
 }
